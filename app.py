@@ -25,3 +25,9 @@ def tts():
 @app.route('/static/audio/<filename>')
 def serve_audio(filename):
     return send_from_directory(AUDIO_FOLDER, filename)
+
+# 🔧 Add this block to enable Render to detect the port
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
